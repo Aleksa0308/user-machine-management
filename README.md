@@ -11,6 +11,7 @@ Welcome to the User and Machine Management System! This project is a full-stack 
 ✅ **Machine Management**:
    - CRUD operations for machines.
    - Machines can be RUN, STOPPED, DISCHARGED, and scheduled to run at specified times.
+   - Transaction and pessimistic locking used for scheduling machines to ensure data integrity.
 
 ✅ **Permissions and Roles**:
    - Users have permissions regarding user and machine management based on their roles.
@@ -18,6 +19,10 @@ Welcome to the User and Machine Management System! This project is a full-stack 
 
 ✅ **Search Functionality**:
    - Search functionality with various parameters for both users and machines.
+
+✅ **Error Handling**:
+   - All possible errors related to running, stopping, discharging, and scheduling machines are handled gracefully.
+
 
 ## Technologies Used
 
