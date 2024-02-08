@@ -1,0 +1,12 @@
+<section>
+  <nav class="navigation">
+    <h1>NWP Vacuums</h1>
+    <!-- NGPrime Menubar for styling -->
+    <p-menubar [model]="items"></p-menubar>
+    <button *ngIf="isLoggedIn" (click)="logout()" pButton pRipple label="Logout" class="p-button-info"></button>
+  </nav>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</section>
+

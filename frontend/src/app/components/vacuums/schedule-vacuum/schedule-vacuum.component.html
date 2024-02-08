@@ -1,0 +1,24 @@
+<section class="container">
+  <form #entityForm="ngForm" (submit)="onSubmit(entityForm)" class="create-form">
+    <h1>Schedule Vacuum</h1>
+    <div class="form-row">
+      <div class="input-div">
+        <label for="name">Name</label>
+        <input [disabled]="true" pInputText id="name" name="name" required [(ngModel)]="vacuumName" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div>
+        <label for="status">Status</label>
+        <p-dropdown placeholder="Status" [options]="statusOptions" optionLabel="name" id="status" name="status" ngModel [style]="{ width: '100%' }"></p-dropdown>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="input-div">
+        <label for="date">Date and Time</label>
+        <p-calendar id="date" name="date" ngModel [showTime]="true" [showSeconds]="true"></p-calendar>
+      </div>
+    </div>
+    <button pButton type="submit" label="Schedule"></button>
+  </form>
+</section>

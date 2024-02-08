@@ -1,0 +1,21 @@
+
+.vacuum-section{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.form-search{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+}
+.single-input{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}

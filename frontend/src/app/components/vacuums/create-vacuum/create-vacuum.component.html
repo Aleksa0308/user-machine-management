@@ -1,0 +1,12 @@
+<section class="container">
+  <form #entityForm="ngForm" (submit)="onSubmit(entityForm)" class="create-form">
+    <h1>Create Vacuum</h1>
+    <div class="form-row">
+      <div class="input-div">
+        <label for="name">Name</label>
+        <input pInputText id="name" name="name" required ngModel />
+      </div>
+    </div>
+    <button pButton type="submit" label="Create Vacuum"></button>
+  </form>
+</section>

@@ -1,0 +1,53 @@
+<section class="vacuum-section">
+  <form #entityForm="ngForm" class="form-search" (submit)="onSubmit(entityForm)">
+    <div class="single-input">
+      <label for="name">Name</label>
+      <input placeholder="Name" pInputText id="name" name="name" aria-describedby="name" [(ngModel)]="search.name" />
+    </div>
+    <div>
+      <label for="status">Status</label>
+      <p-multiSelect placeholder="Status" [options]="statusOptions" optionLabel="name" id="status" name="status" [(ngModel)]="search.status" [style]="{ width: '100%' }"></p-multiSelect>
+    </div>
+    <div class="single-input">
+      <label>Date From</label>
+      <input pInputText type="date" name="dateFrom" [(ngModel)]="search.dateFrom" />
+    </div>
+    <div class="single-input">
+      <label>Date To</label>
+      <input pInputText type="date" name="dateTo" [(ngModel)]="search.dateTo" />
+    </div>
+    <button pButton type="submit" label="Search"></button>
+  </form>
+  <div style="display: flex; align-items: center; justify-content: space-between; width: 100%">
+    <h4>Vacuums</h4>
+    <button *ngIf="canCreate" pButton type="button" icon="pi pi-plus" (click)="navigateToCreateVacuum()" label="Create vacuum"></button>
+  </div>
+  <p-table [value]="vacuums" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Active</th>
+        <th>Status</th>
+        <th>Created At</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-vacuum>
+      <tr>
+        <td>{{ vacuum.id }}</td>
+        <td>{{ vacuum.name }}</td>
+        <td>{{ vacuum.active }}</td>
+        <td>{{ vacuum.status }}</td>
+        <td>{{ vacuum.creationDate }}</td>
+        <td style="display: flex; gap: 4px;">
+          <button *ngIf="canStart" [disabled]="vacuum.status.toUpperCase() === 'ON'" pButton type="button" (click)="startVacuum(vacuum.id)" icon="pi pi-caret-right" class="p-button-success"></button>
+          <button *ngIf="canStop"  [disabled]="vacuum.status.toUpperCase() === 'OFF'" pButton type="button" (click)="stopVacuum(vacuum.id)" icon="pi pi-stop"  class="p-button-secondary"></button>
+          <button *ngIf="canDischarge" pButton type="button" (click)="dischargeVacuum(vacuum.id)" icon="pi pi-undo" class="p-button-warning"></button>
+          <button *ngIf="canSchedule" pButton type="button" (click)="navigateToScheduleVacuum(vacuum.id)" icon="pi pi-calendar" class="p-button-info"></button>
+          <button *ngIf="canDelete" pButton type="button" (click)="destroyVacuum(vacuum.id)" icon="pi pi-trash" class="p-button-danger"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</section>

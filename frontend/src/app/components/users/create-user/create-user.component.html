@@ -1,0 +1,29 @@
+<section class="container">
+  <form #entityForm="ngForm" (submit)="onSubmit(entityForm)" class="create-form">
+    <h1>Create User</h1>
+    <div class="form-row">
+      <div class="input-div">
+        <label for="firstname">Firstname</label>
+        <input pInputText id="firstname" name="firstname" required ngModel />
+      </div>
+      <div class="input-div">
+        <label for="lastname">Lastname</label>
+        <input pInputText id="lastname" name="lastname" required ngModel />
+      </div>
+    </div>
+    <div class="input-div">
+      <label for="email">Email</label>
+      <input pInputText id="email" name="email" required ngModel />
+    </div>
+    <div class="input-div">
+      <label for="password">Password</label>
+      <input pInputText type="password" id="password" required name="password" ngModel />
+    </div>
+
+    <div class="input-div">
+      <label for="permissions">Permissions</label>
+      <p-multiSelect id="permissions" [options]="permissions" [(ngModel)]="selectedPermissions" name="permissions" optionLabel="name" placeholder="Permissions"></p-multiSelect>
+    </div>
+    <button pButton type="submit" label="Create User"></button>
+  </form>
+</section>

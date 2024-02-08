@@ -1,0 +1,21 @@
+<h1>Errors</h1>
+<p-table [value]="errors" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Id</th>
+      <th>Action</th>
+      <th>Date</th>
+      <th>Message</th>
+      <th>Vaccum</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-error>
+    <tr>
+      <td>{{ error.id }}</td>
+      <td>{{ error.action }}</td>
+      <td>{{ error.date }}</td>
+      <td>{{ error.message }}</td>
+      <td>{{ error.vacuum.name }}</td>
+    </tr>
+  </ng-template>
+</p-table>

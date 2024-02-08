@@ -1,0 +1,15 @@
+<section class="container">
+  <form #entityForm="ngForm" (submit)="onSubmit(entityForm)" class="login-form">
+    <h1>User and Vacuum Management</h1>
+    <div class="input-div">
+      <label for="email">Email</label>
+      <input pInputText id="email" required name="email" ngModel />
+    </div>
+    <div class="input-div">
+      <label for="email">Password</label>
+      <input pInputText type="password" id="password" required name="password" ngModel />
+    </div>
+    <small *ngIf="errorMessage" class="p-error">{{ errorMessage }}</small>
+    <button pButton type="submit" label="Log in"></button>
+  </form>
+</section>
